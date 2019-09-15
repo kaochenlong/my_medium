@@ -12,6 +12,14 @@
   </div>
 
   <div class="field">
+    <%= f.label :avatar, '大頭照' %><br />
+    <div class="control">
+      <%= f.file_field :avatar %>
+    </div>
+    <%= avatar(current_user) %>
+  </div>
+
+  <div class="field">
     <%= f.label :intro, '個人簡介' %><br />
     <div class="control">
       <%= f.text_area :intro, class: 'textarea is-medium', rows: 5%>
