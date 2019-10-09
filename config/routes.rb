@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   # /@kaochenlong/
   get '@:username', to: 'pages#user', as: 'user_page'
 
+  get "/demo", to: 'pages#demo'
   root 'pages#index'
 end
