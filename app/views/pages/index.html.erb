@@ -81,7 +81,7 @@
           <article class="media">
             <div class="media-content">
               <h2 class="title is-4"><%= link_to story.title, story_page_path(story.user.username, story), class: 'has-text-grey-dark' %></h2>
-              <p class="content"><%= story.content %></p>
+              <p class="content"><%= strip_tags(story.content).truncate(200) %></p>
               <footer>
                 <p>
                 <%= link_to story.user.username, user_page_path(story.user.username), class: 'has-text-grey-dark' %> | <%= time_ago_in_words(story.created_at) %>
