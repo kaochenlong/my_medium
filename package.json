@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^4.0.7",
+    "bulma": "^0.8.0",
     "stimulus": "^1.1.1"
   },
   "devDependencies": {
