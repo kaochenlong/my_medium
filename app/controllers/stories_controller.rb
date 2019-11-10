@@ -12,7 +12,8 @@ class StoriesController < ApplicationController
 
   def create
     @story = current_user.stories.new(story_params)
-    @story.status = 'published' if params[:publish]
+    # @story.status = 'published' if params[:publish]
+    @story.publish! if params[:publish]
 
     if @story.save
       if params[:publish]
@@ -56,6 +57,6 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    params.require(:story).permit(:title, :content)
+    params.require(:story).permit(:title, :content, :cover_image)
   end
 end
