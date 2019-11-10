@@ -88,9 +88,13 @@
                 </p>
               </footer>
             </div>
+
+            <% if story.cover_image.attached? %>
             <figure class="media-right">
-              <img src="https://fakeimg.pl/150x150/">
+              <%= image_tag story.cover_image.variant(resize: '150x150') %>
             </figure>
+            <% end %>
+
           </article>
           <% end %>
 
