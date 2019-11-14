@@ -5,10 +5,11 @@
     <span class="profile" data-controller="user">
       <%= image_tag @story.user.avatar.variant(resize: '50x50'), class: 'avatar' if @story.user.avatar.attached? %>
       <span class="username"><%= @story.user.username %></span>
-      <%= link_to "Follow", '#', class: 'follow-button', 
-                                 data: { action: 'user#follow', 
+      <%= link_to '#', class: 'follow-button', data: { action: 'user#follow', 
                                          user: @story.user.id, 
-                                         target: 'user.followButton' } %>
+                                         target: 'user.followButton' } do %>
+        <%= (user_signed_in? && current_user.follow?(@story.user)) ? 'Followed' : 'Follow' %>
+      <% end %>
     </span>
 
     <article class="content">
