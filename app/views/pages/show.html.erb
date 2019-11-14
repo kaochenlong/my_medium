@@ -12,8 +12,11 @@
       <%= image_tag @story.cover_image.variant(resize: '1000x500'), class: 'cover-image' if @story.cover_image.attached? %>
       <%= simple_format(@story.content) %>
 
-      <footer>
-        拍手 0
+      <footer data-controller="story">
+        <%= link_to "#", class: 'clapButton is-size-2 has-text-primary', data: { action: 'story#addClap', slug: @story.slug } do %>
+          <i class="far fa-hand-spock"></i>
+          <span class="clapCount" data-target="story.clapCount">0</span>
+        <% end %>
       </footer>
     </article>
     <hr>
