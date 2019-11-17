@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
+    "froala-editor": "^3.0.6",
     "webpack-dev-server": "^3.8.2"
   }
 }
