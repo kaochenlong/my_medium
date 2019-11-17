@@ -12,25 +12,36 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
         </p>
       </div>
+      
+      <%= form_with url: pay_users_path(type: params[:type]), id: 'pay_form', method: 'post', local: true do |form| %>
+        <%= form.hidden_field :payment_nonce %>
+        <div id="dropin-container"></div>
+        <%= link_to "重新選擇方案", pricing_users_path, class: 'button is-light' %>
+        <button id="submit-button" class="button is-danger">付錢去！</button>
+      <% end %>
+
     </div>
   </article>
 </div>
 
-<div id="dropin-container"></div>
-<button id="submit-button">Request payment method</button>
 
 <script src="https://js.braintreegateway.com/web/dropin/1.20.4/js/dropin.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function(event) {
+  document.addEventListener('turbolinks:load', function(event) {
     var button = document.querySelector('#submit-button');
+    let nonce_field = document.querySelector('input[name="payment_nonce"]')
+    let form = document.querySelector('#pay_form')
 
     braintree.dropin.create({
       authorization: '<%= @token %>',
       container: '#dropin-container'
     }, function (createErr, instance) {
-      button.addEventListener('click', function () {
+      button.addEventListener('click', function (event) {
+        event.preventDefault()
+
         instance.requestPaymentMethod(function (err, payload) {
-          // Submit payload.nonce to your server
+          nonce_field.value = payload.nonce
+          form.submit()
         });
       });
     });
