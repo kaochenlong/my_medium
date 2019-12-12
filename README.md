@@ -1,24 +1,6 @@
-# README
+# 微痛轉職工程師
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+線上課程 https://iamcoding.tw 範例 - 「向 Medium 致敬」
 
-Things you may want to cover:
+by eddie@5xruby.tw
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
